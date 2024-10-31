@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+
+    <style>
+        *{
+            font-family: Arial, Helvetica, sans-serif;
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        body{
+            overflow-x: hidden;
+            display: flex;
+            justify-content: space-between;
+            flex-direction: column;
+            width: 100%;
+            gap: 50px;
+            max-height: 100vh;
+        }
+        header{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            padding: 10px;
+            background-color: #0084ff;
+        }
+        ul{
+            display: flex;
+            gap: 15px;
+        }
+        ul li{
+            list-style: none;
+            color: white;
+        }
+        ul li div{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+            background-color: #0075e3;
+            padding: 10px;
+            width: 120px;
+            height: 120px;
+            border-radius: 20px;
+            cursor: pointer;
+        }
+        ul li a{
+            text-decoration: none;
+            color: white;
+        }
+        ul li div:hover{
+            background-color: #2596ff;
+        }
+        h1{
+            text-align: center;
+            color: white;
+        }
+        h2{
+            color: rgb(56, 56, 56);
+        }
+        main{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+
+        /*Tabela*/
+        .tabelaContainer{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .table{
+            max-height: 60vh;
+            overflow-y: scroll;
+        }
+        table {
+            border-collapse: collapse;
+            font-size: 18px;
+        }
+        tbody td{
+            color: rgb(56, 56, 56);
+        }
+        thead{
+            background-color: #0084ff;
+        }
+        thead tr {
+            color: #ffffff;
+            text-align: center;
+            font-weight: bold;
+        }
+
+            th, td {
+            padding: 12px;
+        }
+            th, td {
+            padding: 10px;
+            text-align: center;
+        }
+        tbody tr {
+            border-bottom: 1px solid #dddddd;
+        }
+        tbody tr td{
+            border: 1px solid rgb(93, 93, 93);
+        }
+        tbody tr:nth-of-type(even) {
+            background-color: #f3f3f3;
+        }
+
+
+        footer{
+            padding: 10px;
+            width: 100%;
+        }
+        .footer-contents{
+            height: 100%;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+        }
+    </style>
+</head>
+
+
+
+<body>
+    <header>
+        <h1>DASHBOARD</h1>
+        <div>
+            <ul>
+                <li>
+                    <a href="/">
+                        <div>
+                            <img src="/imgs/cidadao.png" alt="Cidadão" width="60px">
+                            <p>CIDADÃO</p>
+                        </div>
+                    </a>  
+                </li>
+
+                
+                <li>
+                    <a href="/dashescola">
+                        <div>
+                            <img src="/imgs/prof-escola.png" alt="Cidadão" width="60px">
+                            <p>ESCOLA</p>
+                        </div>
+                    </a> 
+                </li>
+                
+                
+                <li>
+                    <a href="/dashalerta">
+                        <div>
+                            <img src="/imgs/prof-saude.png" alt="Cidadão" width="60px">
+                            <p>PROF.SAÚDE</p>
+                        </div>
+                    </a> 
+                </li>
+            </ul>
+        </div>  
+    </header>
+    
+
+
+
+
+    <main>
+        <h2>CHECKLISTS DA ESCOLA</h2>
+        <div class="tabelaContainer" style="width: 100%; overflow-x: scroll;">
+            <div class="table" >
+                <table>
+                    <thead>
+                        <tr>
+                            <th>N°</th>
+                            <th>ESCOLA</th>
+                            <th>INEP</th>
+                            <th>PROFESSOR</th>
+                            <th style="width: 100px;">Data</th>
+                            <th>latitude</th>
+                            <th>longitude</th>
+                            <th>Item01</th>
+                            <th>Item02</th>
+                            <th>Item03</th>
+                            <th>Item04</th>
+                            <th>Item05</th>
+                            <th>Item06</th>
+                            <th>Item07</th>
+                            <th>Item08</th>
+                            <th>Item09</th>
+                            <th>Item10</th>
+                            <th>Item11</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="registros">
+                        <%checklists.forEach((checklist, indice)=>{%>
+                            <tr>
+                                <td><%=indice + 1%></td>
+                                <td><%=checklist.escola%></td>
+                                <td><%=checklist.inep%></td>
+                                <td><%=checklist.professor%></td>
+                                <td><%=checklist.data%></td>
+                                <td><%=checklist.latitude%></td>
+                                <td><%=checklist.longitude%></td>
+                                <td><%=checklist.item01%></td>
+                                <td><%=checklist.item02%></td>
+                                <td><%=checklist.item03%></td>
+                                <td><%=checklist.item04%></td>
+                                <td><%=checklist.item05%></td>
+                                <td><%=checklist.item06%></td>
+                                <td><%=checklist.item07%></td>
+                                <td><%=checklist.item08%></td>
+                                <td><%=checklist.item09%></td>
+                                <td><%=checklist.item10%></td>
+                                <td><%=checklist.item11%></td>
+                            </tr>
+                    <%})%>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+
+
+
+
+    <footer>
+        <div class="footer-contents">
+            <div><img src="/imgs/logo-prefeitura.png" alt="Logo" width="250px"></div>
+            <div><img src="/imgs/logo.png" alt="Logo" width="70px"></div>
+        </div>
+
+        <p id="data" style="text-align: center; font-size: 18px;"></p>
+    </footer>
+</body>
+
+
+<script src="/js/script.js"></script>
+</html>
+</body>
+</html>
