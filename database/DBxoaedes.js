@@ -83,7 +83,7 @@ const Escola = connection.define('checklistescolas',{
     item11:{type:Sequelize.BOOLEAN, allowNull:false},
 })
 
-Escola.sync({force:false})
+Escola.sync({force:true})
 
 
 
@@ -105,7 +105,7 @@ const Alerta = connection.define('alertaarbovirose',{
     longitude:{type:Sequelize.STRING, allowNull:false},
 })
 
-Alerta.sync({force:false})
+Alerta.sync({force:true})
 
 
 
